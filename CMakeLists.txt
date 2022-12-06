@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(ClientTest)
+project(TestClient)
 set(CMAKE_CXX_STANDARD 17)
 
 include_directories (Transmitter ${CMAKE_CURRENT_SOURCE_DIR}/Transmitter)
@@ -15,10 +15,9 @@ FetchContent_MakeAvailable(boost)
 
 
 
-add_executable(ClientTest main.cpp Transmitter/InputString.h Transmitter/SharedBuffer.h Transmitter/StringHandler.h
+add_executable(TestClient main.cpp Transmitter/InputString.h Transmitter/SharedBuffer.h Transmitter/StringHandler.h
         Transmitter/InputString.cpp Transmitter/SharedBuffer.cpp Transmitter/StringHandler.cpp
         Transmitter/Context/Context.cpp Transmitter/Context/Context.h Transmitter/Context/Singleton.h Transmitter/Engine.cpp Transmitter/Engine.h)
 
 
-target_link_libraries(ClientTest PRIVATE Boost::asio wsock32 ws2_32)
-
+target_link_libraries(TestClient PRIVATE Boost::asio wsock32 ws2_32)
